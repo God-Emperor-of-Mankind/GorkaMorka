@@ -151,3 +151,16 @@ def makeMatricaGestcosti():
 
 
 makeMatricaGestcosti()
+
+
+# выводим матрицы жесткостей элементов
+def vivod(arrayGes):
+    k = 0
+    for i in range(len(arrayGes)):
+        for j in range(len(arrayGes[i])):
+            if k % 2 == 0:
+                print('Матрица жесткости ', i + 1, '-го элемента: \n', arrayGes[i][j])
+                k += 1
+            else:
+                print('', arrayGes[i][j])
+        k = 0
