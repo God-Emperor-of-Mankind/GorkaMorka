@@ -418,3 +418,31 @@ def skolkoTochek(rasDef, maxDef):
         arrT.append(1 / (int(kolT) + 1) * i)
     return arrT
 
+
+arrRas = []
+for i in range(len(array)):
+    arrRas.append([])
+
+
+def makeArrayRaspredelenya():
+    skolkoTochek(True, False)
+    for i in range(len(array)):
+        for j in range(len(arrT)):
+            masssiveFunFormForEachElementInTochka(arrT[j])
+            PeremeshenieElementaVTochke = N[i][0] * U[i] + N[i][1] * U[i + 1]
+            if okr is True:
+                PeremeshenieElementaVTochke = roundNum(PeremeshenieElementaVTochke, kolZnakPoslZap)
+            arrRas[i].append(PeremeshenieElementaVTochke)
+    return arrRas
+
+
+m = hotiteLi('Хотите посмотреть распределение перемещений по элементам? ')
+if m == '1' or m.lower() == 'да':
+    makeArrayRaspredelenya()
+    print(arrRas)
+
+print('')
+
+arrRas = []
+for i in range(len(array)):
+    arrRas.append([])
