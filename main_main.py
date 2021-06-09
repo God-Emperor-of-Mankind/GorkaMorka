@@ -164,3 +164,32 @@ def vivod(arrayGes):
             else:
                 print('', arrayGes[i][j])
         k = 0
+
+
+vivod(arrayGes)
+print('')
+
+# формируем заготовку для матрицу жесткости системы
+matGes = []
+for i in range(len(array) + 1):
+    matGes.append([])
+
+
+# считаем матрицу жесткости системы
+def makeMatricaGestcostiSistemi():
+    matGes[0].append(arrayGes[0][0][0])
+    for i in range(len(array) + 1):
+        for j in range(len(array) + 1):
+            if i == j and i != 0 and i != len(array):
+                matGes[i].append(arrayGes[i][0][0] + arrayGes[i - 1][0][0])
+            elif j == i - 1 and i != 0 and i != len(array) + 1:
+                matGes[i].append(arrayGes[i - 1][0][1])
+            elif j == i + 1 and i != len(array) + 1:
+                matGes[i].append(arrayGes[i][0][1])
+            elif j != i and j != -1 and i != -1:
+                matGes[i].append(0)
+    matGes[-1].append(arrayGes[-1][0][0])
+    return matGes
+
+
+makeMatricaGestcostiSistemi()
