@@ -106,3 +106,22 @@ print('Массив длин элементов L\n', L, '\n')
 print('Массив узловых усилий F\n', arrayUsiliy, '\n')
 
 balkaM = []
+
+
+def chertezUzlovM():
+    print('Чертеж балки в масштабе с узловыми усилиями')
+    for i in range(len(array) * 2 + 1):
+        if i % 2 == 0:
+            balkaM.append(arrayUsiliy[round(i / 2)])
+        else:
+            balkaM.append(('-' * int(L[round((i - 1) / 2)])))
+    balkaM[0] = 'F1'
+    balkaM[-1] = 'F' + str(round(i / 2 + 1))
+    print('F1' + ' и ' + 'F' + str(round(i / 2 + 1)) + '- заделки')
+    return balkaM
+
+
+chertezUzlovM()
+
+print(balkaM, ' --> X', '\n')
+
