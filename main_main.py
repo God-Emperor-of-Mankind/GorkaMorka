@@ -316,3 +316,33 @@ intU()
 resh = 0
 uLoc = 0
 U = []
+
+
+def reshenieSlay():
+    arrayReshenie.append(0)
+    for i in range(len(arrU)):
+        for j in range(len(arrU)):
+            if i == j and i == 0:
+                resh = arrU[i] / arr[i][j]
+                if okr is True:
+                    resh = roundNum(resh, kolZnakPoslZap)
+                uLoc = resh
+            elif i == j:
+                resh = (arrU[i] - uLoc * arr[i][j - 1]) / arr[i][j]
+                if okr is True:
+                    resh = roundNum(resh, kolZnakPoslZap)
+                uLoc = resh
+        arrayReshenie.append(resh)
+    arrayReshenie.append(0)
+    return arrayReshenie
+
+
+U = reshenieSlay()
+print('Столбец возможных перемещений')
+print(U)
+print('')
+
+N = []
+
+for i in range(len(array)):
+    N.append([])
