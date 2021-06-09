@@ -472,3 +472,9 @@ def seekMax():
                 Max[1] = i
                 Max[2] = j
     return Max
+
+
+m = hotiteLi('Хотите найти максимальное перемещение? ')
+if m == '1' or m.lower() == 'да':
+    max = seekMax()
+    print('Максимальное значение перемещения ' + str(max[0]) + ' в элементе ' + str(max[1]) + ' в точке ' + str(max[2]))
