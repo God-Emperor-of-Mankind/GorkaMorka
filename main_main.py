@@ -218,3 +218,20 @@ for i in range(len(matGes)):
 print('')
 
 arrayUzlovihPeremesheniy = []
+
+
+def matrichnoeUravnenie():
+    for i in range(len(array) + 1):
+        arrayUzlovihPeremesheniy.append('U' + str(i + 1))
+        print(str(matGes[i]) + ' * ' + str(arrayUzlovihPeremesheniy[i]) + ' = ' + str(arrayUsiliy[i]))
+
+
+print('Матричное уравнение')
+matrichnoeUravnenie()
+print('')
+
+arrayReshenie = []
+arr1 = []
+arr = []
+for i in range(len(arrayUsiliy) - 2):
+    arr.append([])
