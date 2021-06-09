@@ -125,3 +125,29 @@ chertezUzlovM()
 
 print(balkaM, ' --> X', '\n')
 
+# обьявление вспомогательной матрицы
+arrayG = [[1, -1],
+          [-1, 1]]
+
+# формируем заготовку для массива матриц жесткостей
+arrayGes = []
+for i in range(len(array)):
+    arrayGes.append([])
+    for j in range(len(arrayG)):
+        arrayGes[i].append([])
+
+
+# на выходе получим [  [ [], [] ],  [ [], [] ],
+#                      [ [], [] ],  [ [], [] ]  ]
+
+# считаем матрицу жесткостей элементов
+def makeMatricaGestcosti():
+    for i in range(len(array)):
+        for j in range(len(arrayG)):
+            for k in range(len(arrayG[j])):
+                arrayGes[i][j].append(float(array[i]) * float(arrayG[j][k]))
+    return arrayGes
+
+
+
+makeMatricaGestcosti()
