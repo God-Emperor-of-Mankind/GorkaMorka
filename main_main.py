@@ -82,3 +82,15 @@ def hotiteLi(text):
 def roundNum(num, kolZnakPoslZap):
     num = round(num * 10 ** int(kolZnakPoslZap))/(10 ** int(kolZnakPoslZap))
     return num
+
+balka = []
+
+def chertezUzlov():
+    print('Предварительный чертеж балки, включите воображение')
+    for i in range(len(array) * 2 + 1):
+        if i % 2 == 0:
+            balka.append('F' + str(round(i / 2 + 1)))
+        else:
+            balka.append('----')
+    print('F1' + ' и ' + 'F' + str(round(i / 2 + 1)) + '- заделки')
+    return balka
