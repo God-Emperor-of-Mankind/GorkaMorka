@@ -316,3 +316,91 @@ intU()
 resh = 0
 uLoc = 0
 U = []
+
+
+def reshenieSlay():
+    arrayReshenie.append(0)
+    for i in range(len(arrU)):
+        for j in range(len(arrU)):
+            if i == j and i == 0:
+                resh = arrU[i] / arr[i][j]
+                if okr is True:
+                    resh = roundNum(resh, kolZnakPoslZap)
+                uLoc = resh
+            elif i == j:
+                resh = (arrU[i] - uLoc * arr[i][j - 1]) / arr[i][j]
+                if okr is True:
+                    resh = roundNum(resh, kolZnakPoslZap)
+                uLoc = resh
+        arrayReshenie.append(resh)
+    arrayReshenie.append(0)
+    return arrayReshenie
+
+
+U = reshenieSlay()
+print('Столбец возможных перемещений')
+print(U)
+print('')
+
+N = []
+
+for i in range(len(array)):
+    N.append([])
+
+
+def masssiveFunFormForEachElementInTochka(x):
+    for i in range(len(array)):
+        N[i] = []
+    for i in range(len(array)):
+        N1 = 1 - x / float(L[i])
+        N2 = x / float(L[i])
+        N[i].append(N1)
+        N[i].append(N2)
+    return N
+
+
+# PeremeshenieElementaVTochke = 0
+
+
+def sluchPeremeshenie():
+    PeremeshenieElementaVTochke = 0
+    element = None
+    while element == None:
+        element = input('Введите номер элемента от 1 до ' + str(len(array)) + ' ')
+        element = pravilnoLi(element, False, False, False, True)
+        if element != None:
+            element = int(element)
+            if element <= len(array) and element > 0:
+                m = '1'
+                while m == '1':
+                    x = input('Введите координату от 0 до 1 в ' + str(element) + ' элементе в долях от ' + str(
+                        L[element - 1]) + ' м ')
+                    x = float(x)
+                    if x <= 1 and x >= 0:
+                        masssiveFunFormForEachElementInTochka(x)
+                        PeremeshenieElementaVTochke = N[element - 1][0] * U[element - 1] + N[element - 1][1] * U[
+                            element]
+                        if okr is True:
+                            PeremeshenieElementaVTochke = roundNum(PeremeshenieElementaVTochke, kolZnakPoslZap)
+                        print(PeremeshenieElementaVTochke)
+                        m = hotiteLi('Хотите снова найти перемещение в ' + str(element) + ' элементе? ')
+                    else:
+                        print('Непрвильная координата. Повторите попытку ввода.\n')
+            else:
+                print('Непрвильный номер элемента. Повторите попытку ввода.\n')
+    return PeremeshenieElementaVTochke
+
+
+m = hotiteLi('Хотите найти перемещение в указанной точке? ')
+if m == '1' or m.lower() == 'да':
+    m = '1'
+    while m == '1' or m.lower() == 'да':
+        sluchPeremeshenie()
+        m = hotiteLi('Хотите снова найти перемещение в указанной точке? ')
+
+print('')
+
+arrT = []
+
+rasDef = False
+maxDef = False
