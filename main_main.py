@@ -94,3 +94,15 @@ def chertezUzlov():
             balka.append('----')
     print('F1' + ' и ' + 'F' + str(round(i / 2 + 1)) + '- заделки')
     return balka
+
+
+chertezUzlov()
+print(balka, ' --> X', '\n')
+# masiveLength()
+# masiveYsiliy()
+# вывод массивов
+print('Массив жесткостей элементов EF\n', array, '\n')
+print('Массив длин элементов L\n', L, '\n')
+print('Массив узловых усилий F\n', arrayUsiliy, '\n')
+
+balkaM = []
