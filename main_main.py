@@ -270,3 +270,49 @@ def mnogitel(i, elem):
         if i == j:
             m = elem[i - 1][j] / elem[i][j]
     return m
+
+
+okr = False
+m = hotiteLi('Хотите округлить результаты? ')
+if m == '1' or m.lower() == 'да':
+    okr = True
+    kolZnakPoslZap = None
+    while kolZnakPoslZap == None:
+        kolZnakPoslZap = input('Сколько знаков оставить после запятой? ')
+        kolZnakPoslZap = pravilnoLi(kolZnakPoslZap, False, False, False, True)
+
+
+def triangleArray():
+    for i in range(len(arr) - 1, 0, -1):
+        mn = mnogitel(i, arr)
+        b = float(arrU[i - 1]) - float(arrU[i]) * mn
+        if okr is True:
+            b = roundNum(b, kolZnakPoslZap)
+        arrU[i - 1] = b
+        for j in range(len(arr[i]) - 1, -1, -1):
+            a = arr[i - 1][j] - arr[i][j] * mn
+            if okr is True:
+                a = roundNum(a, kolZnakPoslZap)
+            arr[i - 1][j] = a
+    return arr
+
+
+triangleArray()
+
+print('Приводим к диагональному виду')
+for i in range(len(arr)):
+    print(str(arr[i]) + ' = ' + str(arrU[i]))
+print('')
+
+
+def intU():
+    for i in range(len(arrU)):
+        arrU[i] = float(arrU[i])
+    return arrU
+
+
+intU()
+
+resh = 0
+uLoc = 0
+U = []
