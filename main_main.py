@@ -71,3 +71,9 @@ def pravilnoLi(name, flt, mns, null, one):
             name = None
             warning = print('Вы ввели спецсимвол либо опечатались. Повторите попытку ввода.')
     return name
+
+def hotiteLi(text):
+    m = ''
+    while m != '1' and m != '0' and m.lower() != 'да' and m.lower() != 'нет':
+        m = input(text)
+    return m
