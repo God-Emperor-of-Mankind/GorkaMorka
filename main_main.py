@@ -198,3 +198,23 @@ print('Матрица жесткости системы')
 for i in range(len(matGes)):
     print(matGes[i])
 print('')
+
+
+def vvodGranichnihUsloviy():
+    for i in range(len(matGes)):
+        for j in range(len(matGes[i])):
+            if j == 0 or j == len(matGes) - 1 or i == 0 or i == len(matGes) - 1:
+                matGes[i][j] = 0
+    matGes[0][0] = 1
+    matGes[-1][-1] = 1
+    return matGes
+
+
+vvodGranichnihUsloviy()
+
+print('Матрица жесткости системы с граничными условиями')
+for i in range(len(matGes)):
+    print(matGes[i])
+print('')
+
+arrayUzlovihPeremesheniy = []
