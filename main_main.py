@@ -249,3 +249,24 @@ def makeArr():
 makeArr()
 
 arrU = []
+
+
+def makeArrU():
+    for i in range(1, len(arrayUsiliy) - 1):
+        arrU.append(arrayUsiliy[i])
+    return arrU
+
+
+makeArrU()
+
+print('Убираем лишнее')
+for i in range(len(arr)):
+    print(str(arr[i]) + ' = ' + str(arrU[i]))
+print('')
+
+
+def mnogitel(i, elem):
+    for j in range(len(elem)):
+        if i == j:
+            m = elem[i - 1][j] / elem[i][j]
+    return m
