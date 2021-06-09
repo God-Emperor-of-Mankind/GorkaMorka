@@ -446,3 +446,29 @@ print('')
 arrRas = []
 for i in range(len(array)):
     arrRas.append([])
+
+
+a = roundNum(40, 2)
+
+arrT = []
+Max = ['','','']
+
+def seekMax():
+    skolkoTochek(False, True)
+    for i in range(len(array)):
+        for j in range(len(arrT)):
+            masssiveFunFormForEachElementInTochka(arrT[j])
+            PeremeshenieElementaVTochke = N[i][0] * U[i] + N[i][1] * U[i + 1]
+            if okr is True:
+                PeremeshenieElementaVTochke = roundNum(PeremeshenieElementaVTochke, kolZnakPoslZap)
+            arrRas[i].append(PeremeshenieElementaVTochke)
+    Max[0] = arrRas[0][0]
+    for i in range(len(arrRas)):
+        for j in range(len(arrRas[i]) - 1):
+            if arrRas[i][j + 1] > arrRas[i][j]:
+                if okr is True:
+                    arrRas[i][j + 1] = roundNum(arrRas[i][j + 1], kolZnakPoslZap)
+                Max[0] = arrRas[i][j + 1]
+                Max[1] = i
+                Max[2] = j
+    return Max
