@@ -77,3 +77,8 @@ def hotiteLi(text):
     while m != '1' and m != '0' and m.lower() != 'да' and m.lower() != 'нет':
         m = input(text)
     return m
+
+
+def roundNum(num, kolZnakPoslZap):
+    num = round(num * 10 ** int(kolZnakPoslZap))/(10 ** int(kolZnakPoslZap))
+    return num
