@@ -193,3 +193,8 @@ def makeMatricaGestcostiSistemi():
 
 
 makeMatricaGestcostiSistemi()
+
+print('Матрица жесткости системы')
+for i in range(len(matGes)):
+    print(matGes[i])
+print('')
