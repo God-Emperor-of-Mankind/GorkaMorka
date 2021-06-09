@@ -235,3 +235,17 @@ arr1 = []
 arr = []
 for i in range(len(arrayUsiliy) - 2):
     arr.append([])
+
+
+
+def makeArr():
+    for i in range(1, len(arrayUsiliy) - 1):
+        for j in range(1, len(arrayUsiliy) - 1):
+            for k in range(1):
+                arr[i - 1].append(matGes[i][j])
+    return arr
+
+
+makeArr()
+
+arrU = []
