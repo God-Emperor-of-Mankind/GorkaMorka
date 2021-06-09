@@ -404,3 +404,17 @@ arrT = []
 
 rasDef = False
 maxDef = False
+
+
+def skolkoTochek(rasDef, maxDef):
+    kolT = None
+    while kolT == None:
+        if rasDef is True:
+            kolT = input('Сколько точек хотите рассмотреть в каждом элементе? (Не считая узловых точек) ')
+        elif maxDef is True:
+            kolT = input('На сколько точек хотите разбить элементы? ')
+        kolT = pravilnoLi(kolT, False, False, True, True)
+    for i in range(int(kolT) + 2):
+        arrT.append(1 / (int(kolT) + 1) * i)
+    return arrT
+
