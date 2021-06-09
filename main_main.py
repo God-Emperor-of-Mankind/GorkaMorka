@@ -404,3 +404,45 @@ arrT = []
 
 rasDef = False
 maxDef = False
+
+
+def skolkoTochek(rasDef, maxDef):
+    kolT = None
+    while kolT == None:
+        if rasDef is True:
+            kolT = input('Сколько точек хотите рассмотреть в каждом элементе? (Не считая узловых точек) ')
+        elif maxDef is True:
+            kolT = input('На сколько точек хотите разбить элементы? ')
+        kolT = pravilnoLi(kolT, False, False, True, True)
+    for i in range(int(kolT) + 2):
+        arrT.append(1 / (int(kolT) + 1) * i)
+    return arrT
+
+
+arrRas = []
+for i in range(len(array)):
+    arrRas.append([])
+
+
+def makeArrayRaspredelenya():
+    skolkoTochek(True, False)
+    for i in range(len(array)):
+        for j in range(len(arrT)):
+            masssiveFunFormForEachElementInTochka(arrT[j])
+            PeremeshenieElementaVTochke = N[i][0] * U[i] + N[i][1] * U[i + 1]
+            if okr is True:
+                PeremeshenieElementaVTochke = roundNum(PeremeshenieElementaVTochke, kolZnakPoslZap)
+            arrRas[i].append(PeremeshenieElementaVTochke)
+    return arrRas
+
+
+m = hotiteLi('Хотите посмотреть распределение перемещений по элементам? ')
+if m == '1' or m.lower() == 'да':
+    makeArrayRaspredelenya()
+    print(arrRas)
+
+print('')
+
+arrRas = []
+for i in range(len(array)):
+    arrRas.append([])
