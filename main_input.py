@@ -139,6 +139,8 @@ def arr_usiliy():
                     U1[1] = '0'
                 U = int(U1[0]) + int(U1[1]) / 10 ** (len(U1[1]))
                 usiliya[uzel] = U * napravlenie
+        usiliya[0] = float(0)
+        usiliya[-1] = float(0)
     return usiliya
 
 arr_usiliy()
